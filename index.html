@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="Ôn tập trắc nghiệm Tiếng Anh 12 - Global Success, Units 1, 2, 3 (90 câu hỏi).">
+    <title>Trắc Nghiệm Tiếng Anh 12 - Global Success (Units 1, 2, 3)</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    <style>
+        :root {
+            --ok: #16a34a;
+            --ok-soft: #dcfce7;
+            --bad: #dc2626;
+            --bad-soft: #fee2e2;
+            --warn: #b45309;
+            --warn-soft: #fef3c7;
+        }
+        [data-theme="light"] {
+            --bg: #f3f6fc;
+            --glow1: rgba(99, 102, 241, .18);
+            --glow2: rgba(139, 92, 246, .14);
+            --surface: #ffffff;
+            --surface-2: #f8fafc;
+            --header-bg: rgba(255, 255, 255, .82);
+            --footer-bg: rgba(255, 255, 255, .6);
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --border-strong: #cbd5e1;
+            --primary: #6366f1;
+            --primary-2: #8b5cf6;
+            --primary-soft: #eef2ff;
+            --primary-ink: #4338ca;
+            --track: #e2e8f0;
+            --key-bg: #eef2f7;
+            --card-shadow: 0 2px 4px rgba(15, 23, 42, .03), 0 10px 24px -18px rgba(15, 23, 42, .25);
+            --shadow: 0 18px 40px -22px rgba(15, 23, 42, .3);
+        }
+        [data-theme="dark"] {
+            --bg: #080e1c;
+            --glow1: rgba(79, 70, 229, .22);
+            --glow2: rgba(124, 58, 237, .16);
+            --surface: #0f172a;
+            --surface-2: #131d33;
+            --header-bg: rgba(10, 16, 30, .82);
+            --footer-bg: rgba(10, 16, 30, .6);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --border: #1e293b;
+            --border-strong: #334155;
+            --primary: #818cf8;
+            --primary-2: #a78bfa;
+            --primary-soft: rgba(99, 102, 241, .16);
+            --primary-ink: #c7d2fe;
+            --track: #1e293b;
+            --key-bg: #1e293b;
+            --card-shadow: 0 2px 4px rgba(0, 0, 0, .2), 0 10px 24px -18px rgba(0, 0, 0, .6);
+            --shadow: 0 20px 45px -25px rgba(0, 0, 0, .8);
+            --ok-soft: rgba(22, 163, 74, .16);
+            --bad-soft: rgba(220, 38, 38, .16);
+            --warn-soft: rgba(180, 83, 9, .18);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(1100px 560px at 8% -12%, var(--glow1), transparent 62%),
+                radial-gradient(900px 480px at 108% -4%, var(--glow2), transparent 58%),
+                var(--bg);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color .25s ease, color .25s ease;
+        }
+        .wrap { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 16px; }
+        .hidden { display: none !important; }
+
+        /* ---------- Sticky header + toolbar ---------- */
+        .sticky-shell {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--header-bg);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0 8px;
+        }
+        .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+        .logo {
+            width: 44px; height: 44px; flex: 0 0 44px;
+            display: grid; place-items: center;
+            border-radius: 13px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: .04em;
+            box-shadow: 0 8px 18px -8px rgba(99, 102, 241, .9);
+        }
+        .brand h1 {
+            margin: 0 0 2px;
+            font-size: 1.05rem;
+            line-height: 1.25;
+            font-weight: 750;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .brand p {
+            margin: 0;
+            font-size: .78rem;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .top-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+        .score-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 7px 13px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-ink);
+            border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+            font-size: .84rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .score-chip b { font-size: .95rem; color: var(--primary-ink); }
+        .icon-btn {
+            width: 38px; height: 38px;
+            display: grid; place-items: center;
+            border-radius: 11px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .18s ease;
+        }
+        .icon-btn:hover { border-color: var(--primary); transform: translateY(-1px); }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 6px 0 12px;
+        }
+        .progress-block { flex: 1 1 200px; min-width: 140px; }
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: .73rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+        .progress-track {
+            height: 7px;
+            border-radius: 999px;
+            background: var(--track);
+            overflow: hidden;
+        }
+        #progressFill {
+            height: 100%;
+            width: 0;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--primary), var(--primary-2));
+            transition: width .3s ease;
+        }
+        .toolbar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border-radius: 11px;
+            border: 1px solid transparent;
+            font-family: inherit;
+            font-size: .86rem;
+            font-weight: 650;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: .18s ease;
+        }
+        .btn:active { transform: translateY(1px); }
+        .btn:disabled { opacity: .45; cursor: not-allowed; transform: none !important; }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            box-shadow: 0 8px 18px -10px rgba(99, 102, 241, .95);
+        }
+        .btn-primary:hover:not(:disabled) { filter: brightness(1.07); transform: translateY(-1px); }
+        .btn-ghost {
+            background: var(--surface);
+            color: var(--text);
+            border-color: var(--border);
+        }
+        .btn-ghost:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+
+        /* ---------- Main ---------- */
+        main { padding: 22px 0 36px; }
+
+        .unit-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 26px 0 14px;
+            padding: 14px 18px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            box-shadow: 0 12px 26px -16px rgba(99, 102, 241, .95);
+        }
+        .unit-head:first-child { margin-top: 0; }
+        .unit-head h2 { margin: 2px 0 0; font-size: 1rem; font-weight: 700; line-height: 1.3; }
+        .u-tag {
+            display: inline-block;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .85);
+        }
+        .u-count {
+            font-size: .74rem;
+            font-weight: 650;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .2);
+            white-space: nowrap;
+        }
+
+        .q-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px 20px;
+            box-shadow: var(--card-shadow);
+            scroll-margin-top: 165px;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        .q-card + .q-card { margin-top: 11px; }
+        .q-card:hover { border-color: var(--border-strong); }
+        .q-card.is-blank { border-color: color-mix(in srgb, var(--warn) 45%, var(--border)); }
+        .q-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .q-num {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-ink);
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .02em;
+        }
+        .q-card.is-blank .q-num { background: var(--warn-soft); color: var(--warn); }
+        .q-unit {
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--muted);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            padding: 3px 9px;
+            border-radius: 999px;
+        }
+        .grouped .q-unit { display: none; }
+        .q-text {
+            margin: 0 0 14px;
+            font-size: .98rem;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .opt {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface-2);
+            font-size: .92rem;
+            line-height: 1.4;
+            cursor: pointer;
+            transition: border-color .16s ease, background .16s ease, transform .16s ease;
+        }
+        .opt input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+        .opt:hover { border-color: var(--primary); background: var(--primary-soft); }
+        .opt .key {
+            flex: 0 0 26px;
+            width: 26px;
+            height: 26px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            background: var(--key-bg);
+            color: var(--muted);
+            font-size: .76rem;
+            font-weight: 800;
+            transition: .16s ease;
+        }
+        .opt:has(input:checked) { border-color: var(--primary); background: var(--primary-soft); }
+        .opt:has(input:checked) .key { background: var(--primary); color: #fff; }
+        .opt-text { flex: 1; }
+
+        .opt.correct { border-color: var(--ok); background: var(--ok-soft); }
+        .opt.correct .key { background: var(--ok); color: #fff; }
+        .opt.correct::after {
+            content: "✓";
+            margin-left: auto;
+            color: var(--ok);
+            font-weight: 800;
+        }
+        .opt.wrong { border-color: var(--bad); background: var(--bad-soft); }
+        .opt.wrong .key { background: var(--bad); color: #fff; }
+        .opt.wrong::after {
+            content: "✕";
+            margin-left: auto;
+            color: var(--bad);
+            font-weight: 800;
+        }
+        .graded .opt { cursor: default; transform: none; }
+
+        .q-note-slot { display: contents; }
+        .q-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 8px 12px;
+            border-radius: 9px;
+            background: var(--primary-soft);
+            color: var(--muted);
+            font-size: .81rem;
+            line-height: 1.45;
+        }
+        .q-note b { color: var(--primary-ink); }
+        .q-note.ok { background: var(--ok-soft); color: var(--ok); font-weight: 600; }
+        .q-note.bad { background: var(--bad-soft); color: var(--bad); }
+        .q-note.bad b { color: var(--bad); }
+        .q-note.blank { background: var(--warn-soft); color: var(--warn); }
+        .q-note.blank b { color: var(--warn); }
+
+        /* ---------- Result ---------- */
+        .result {
+            margin: 0 0 24px;
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: linear-gradient(150deg, var(--surface), var(--surface-2));
+            box-shadow: var(--shadow);
+            scroll-margin-top: 160px;
+            animation: pop .32s ease;
+        }
+        @keyframes pop {
+            from { opacity: 0; transform: translateY(-8px) scale(.99); }
+            to { opacity: 1; transform: none; }
+        }
+        .result-main {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .score-orb {
+            --pct: 0%;
+            width: 116px;
+            height: 116px;
+            flex: 0 0 116px;
+            padding: 7px;
+            border-radius: 50%;
+            background: conic-gradient(from -90deg, var(--primary) 0 var(--pct), var(--track) var(--pct) 100%);
+            transition: background .55s ease;
+        }
+        .orb-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            line-height: 1;
+        }
+        .orb-inner span { font-size: 1.9rem; font-weight: 800; color: var(--primary-ink); }
+        .orb-inner small { font-size: .7rem; font-weight: 650; color: var(--muted); }
+        .result-copy { flex: 1 1 260px; min-width: 0; }
+        .result-copy h2 { margin: 0 0 5px; font-size: 1.25rem; font-weight: 750; }
+        .result-copy > p { margin: 0 0 12px; color: var(--muted); font-size: .88rem; }
+        .res-stats { display: flex; flex-wrap: wrap; gap: 8px; }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 11px;
+            border-radius: 999px;
+            font-size: .78rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+        .pill.ok { background: var(--ok-soft); color: var(--ok); }
+        .pill.bad { background: var(--bad-soft); color: var(--bad); }
+        .pill.mute { background: var(--surface); color: var(--muted); border-color: var(--border); }
+        .res-units {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .unit-stat {
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+        .us-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 7px;
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+        .us-top b { color: var(--text); }
+        .us-bar {
+            height: 6px;
+            border-radius: 999px;
+            background: var(--track);
+            overflow: hidden;
+        }
+        .us-bar i {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--primary), var(--primary-2));
+            transition: width .6s ease;
+        }
+
+        .bottom-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 26px 0 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 20px;
+            padding: 22px 0;
+            border-top: 1px solid var(--border);
+            background: var(--footer-bg);
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .footer-note { color: var(--muted); font-size: .84rem; }
+        .gh-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: .85rem;
+            font-weight: 650;
+            text-decoration: none;
+            transition: .18s ease;
+        }
+        .gh-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px -14px rgba(99, 102, 241, .9);
+        }
+        .gh-link svg { width: 19px; height: 19px; fill: currentColor; }
+
+        #toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            z-index: 100;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #111827;
+            color: #fff;
+            font-size: .84rem;
+            font-weight: 500;
+            box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 16px);
+            transition: .25s ease;
+        }
+        #toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+        @media (max-width: 720px) {
+            .res-units { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .brand p { display: none; }
+            .logo { width: 38px; height: 38px; flex-basis: 38px; font-size: .9rem; border-radius: 11px; }
+            .brand h1 { font-size: .94rem; }
+            .score-chip { padding: 6px 10px; font-size: .76rem; }
+            .options { grid-template-columns: 1fr; }
+            .q-card { padding: 15px 15px; border-radius: 14px; }
+            .q-text { font-size: .94rem; }
+            .unit-head { padding: 12px 14px; }
+            .unit-head h2 { font-size: .93rem; }
+            .toolbar { gap: 10px; }
+            .toolbar-actions { width: 100%; }
+            .toolbar-actions .btn { flex: 1; }
+            .result { padding: 18px; }
+            .score-orb { width: 96px; height: 96px; flex-basis: 96px; }
+            .orb-inner span { font-size: 1.55rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-shell">
+        <div class="wrap">
+            <div class="topbar">
+                <div class="brand">
+                    <div class="logo">EN</div>
+                    <div>
+                        <h1>Tiếng Anh 12 · Global Success</h1>
+                        <p>Ôn tập Units 1 – 2 – 3 · 90 câu trắc nghiệm</p>
+                    </div>
+                </div>
+                <div class="top-actions">
+                    <div class="score-chip" id="scoreBadge" aria-live="polite">Điểm: <b>–</b>/90</div>
+                    <button type="button" class="icon-btn" id="themeBtn" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện">🌙</button>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <div class="progress-block">
+                    <div class="progress-meta">
+                        <span id="progressText">0/90 câu</span>
+                        <span id="progressPct">0%</span>
+                    </div>
+                    <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0" id="progressBar">
+                        <div id="progressFill"></div>
+                    </div>
+                </div>
+                <div class="toolbar-actions">
+                    <button type="button" id="shuffleBtn" class="btn btn-ghost">🔀 Đảo câu</button>
+                    <button type="button" id="submitBtn" class="btn btn-primary">✓ Nộp bài</button>
+                    <button type="button" id="resetBtn" class="btn btn-ghost hidden">↺ Làm lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="wrap">
+        <section id="resultPanel" class="result hidden" aria-live="polite">
+            <div class="result-main">
+                <div class="score-orb" id="resOrb">
+                    <div class="orb-inner">
+                        <span id="resScore">0</span>
+                        <small>/90 điểm</small>
+                    </div>
+                </div>
+                <div class="result-copy">
+                    <h2 id="resTitle">Kết quả của bạn</h2>
+                    <p id="resMsg"></p>
+                    <div class="res-stats">
+                        <span class="pill ok">✓ <b id="resCorrect">0</b>&nbsp;đúng</span>
+                        <span class="pill bad">✕ <b id="resWrong">0</b>&nbsp;sai</span>
+                        <span class="pill mute">– <b id="resBlank">0</b>&nbsp;bỏ trống</span>
+                    </div>
+                </div>
+            </div>
+            <div class="res-units" id="resUnits"></div>
+        </section>
+
+        <form id="quizForm" autocomplete="off">
+            <div id="questionsContainer"></div>
+        </form>
+
+        <div class="bottom-actions">
+            <button type="button" id="submitBtn2" class="btn btn-primary">✓ Nộp bài &amp; xem kết quả</button>
+            <button type="button" id="resetBtn2" class="btn btn-ghost hidden">↺ Làm lại</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <span class="footer-note">© <span id="year">2026</span> · Made with ♥ for learning</span>
+            <a class="gh-link" href="https://github.com/B1nTran" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+                B1nTran
+            </a>
+        </div>
+    </footer>
+
+    <div id="toast" role="status"></div>
+
+    <script>
+        const questionsData = [
+            // UNIT 1
+            { id: 1, text: "Everyone admires Marie Curie for her great scientific ______.", options: ["achievements", "childhood", "hobbies", "relatives"], correct: 0 },
+            { id: 2, text: "My grandfather had a difficult ______ during the war, but he never gave up.", options: ["achievement", "childhood", "biography", "contribution"], correct: 1 },
+            { id: 3, text: "Steve Jobs was widely admired ______ his creativity and vision.", options: ["at", "with", "for", "on"], correct: 2 },
+            { id: 4, text: "She decided to ______ her life to helping poor children.", options: ["devote", "admire", "attend", "defeat"], correct: 0 },
+            { id: 5, text: "A ______ is a book that tells the story of someone's life.", options: ["diary", "novel", "poem", "biography"], correct: 3 },
+            { id: 6, text: "The young scientist made a significant ______ to medical research.", options: ["childhood", "contribution", "battle", "experience"], correct: 1 },
+            { id: 7, text: "Although he faced many difficulties, he showed great ______ and achieved his goal.", options: ["determination", "confusion", "anxiety", "pollution"], correct: 0 },
+            { id: 8, text: "My brother ______ college in 2022 and became a teacher two years later.", options: ["was attending", "attends", "attended", "has attended"], correct: 2 },
+            { id: 9, text: "While the doctor ______ the patient, another nurse called for help.", options: ["examined", "was examining", "examines", "has examined"], correct: 1 },
+            { id: 10, text: "When I ______ the news, I immediately called my family.", options: ["was hearing", "hear", "have heard", "heard"], correct: 3 },
+            { id: 11, text: "While we ______ the biography, the electricity suddenly went out.", options: ["were reading", "read", "have read", "are reading"], correct: 0 },
+            { id: 12, text: "Nelson Mandela ______ his life to fighting for freedom and equality.", options: ["was devoting", "has devoted", "devoted", "devotes"], correct: 2 },
+            { id: 13, text: "At 8 p.m. yesterday, my father ______ a documentary about a famous inventor.", options: ["watched", "was watching", "watches", "has watched"], correct: 1 },
+            { id: 14, text: "The word admire is closest in meaning to ______.", options: ["respect", "avoid", "criticize", "ignore"], correct: 0 },
+            { id: 15, text: "The scientist was ______ for his groundbreaking discoveries.", options: ["fame", "famously", "famous", "familiarize"], correct: 2 },
+            { id: 16, text: "While the soldiers ______ their mission, they received an important message.", options: ["carried out", "carry out", "were carrying out", "have carried out"], correct: 2 },
+            { id: 17, text: "She ______ a long marriage with a man who always supported her.", options: ["did", "made", "took", "had"], correct: 3 },
+            { id: 18, text: "The young inventor ______ school to start his own business.", options: ["dropped out of", "looked after", "got over", "took part in"], correct: 0 },
+            { id: 19, text: "When the accident happened, the police ______ nearby.", options: ["patrol", "were patrolling", "have patrolled", "are patrolling"], correct: 1 },
+            { id: 20, text: "The book tells the inspiring life story of a woman, ______ encourages readers to follow their dreams.", options: ["who", "where", "which", "whose"], correct: 2 },
+            { id: 21, text: "Her remarkable achievements have made her a role ______ for young people.", options: ["model", "patterning", "exampled", "manner"], correct: 0 },
+            { id: 22, text: "He overcame many challenges and became a successful ______.", options: ["achieve", "achievement", "achieving", "achiever"], correct: 3 },
+            { id: 23, text: "She received an award in ______ of her contributions to science.", options: ["recognition", "recognize", "recognizable", "recognizing"], correct: 0 },
+            { id: 24, text: "By the time he was twenty, he ______ two successful books.", options: ["publishes", "had published", "was publishing", "has publish"], correct: 1 },
+            { id: 25, text: "When I arrived at the museum, the guided tour ______ already ______.", options: ["has / begun", "was / beginning", "had / begun", "did / begin"], correct: 2 },
+            { id: 26, text: "The woman ______ discovered the new treatment won an international prize.", options: ["which", "whose", "whom", "who"], correct: 3 },
+            { id: 27, text: "He is one of the most inspiring people I have ever ______.", options: ["meet", "met", "meeting", "meets"], correct: 1 },
+            { id: 28, text: "Her life story teaches us never to give ______ when facing difficulties.", options: ["away", "off", "up", "in to"], correct: 2 },
+            { id: 29, text: "The young man was determined ______ his dream of becoming a doctor.", options: ["achieve", "achieving", "achieved", "to achieve"], correct: 3 },
+            { id: 30, text: "The more difficulties he faced, the ______ he became.", options: ["strong", "stronger", "strongest", "strongly"], correct: 1 },
+
+            // UNIT 2
+            { id: 31, text: "Living in a multicultural society helps people understand cultural ______.", options: ["diversity", "pollution", "achievement", "childhood"], correct: 0 },
+            { id: 32, text: "We should respect the customs and ______ of other countries.", options: ["inventions", "traditions", "conditions", "directions"], correct: 1 },
+            { id: 33, text: "Visitors should learn about local ______ before attending a traditional festival.", options: ["habits", "accidents", "customs", "inventions"], correct: 2 },
+            { id: 34, text: "People from different cultures may have different ways of ______ their feelings.", options: ["express", "expressed", "expression", "expressing"], correct: 3 },
+            { id: 35, text: "We should avoid making ______ about people based on their nationality.", options: ["stereotypes", "achievements", "contributions", "biographies"], correct: 0 },
+            { id: 36, text: "Learning a foreign language allows us to communicate ______ people from other cultures.", options: ["for", "by", "with", "at"], correct: 2 },
+            { id: 37, text: "The festival attracted tourists because of its ______ performances and traditional costumes.", options: ["ordinary", "fascinating", "polluted", "harmful"], correct: 1 },
+            { id: 38, text: "In some countries, people take off their shoes before entering ______ house.", options: ["a", "an", "the", "Ø (no article)"], correct: 0 },
+            { id: 39, text: "My sister wants to become ______ international student next year.", options: ["a", "an", "the", "Ø (no article)"], correct: 1 },
+            { id: 40, text: "The Japanese are known for their respect for ______ elderly.", options: ["a", "an", "the", "Ø (no article)"], correct: 2 },
+            { id: 41, text: "We visited ______ United Kingdom during our summer holiday.", options: ["a", "an", "the", "Ø (no article)"], correct: 2 },
+            { id: 42, text: "______ Vietnamese people often celebrate Tet with their families.", options: ["A", "An", "The", "Ø (no article)"], correct: 3 },
+            { id: 43, text: "We should learn to appreciate cultural differences ______ creating misunderstandings.", options: ["instead of", "because", "despite of", "due"], correct: 0 },
+            { id: 44, text: "It is important to be ______ when communicating with people whose beliefs differ from ours.", options: ["tolerance", "tolerant", "tolerantly", "tolerate"], correct: 1 },
+            { id: 45, text: "In many cultures, shaking hands is a common way to ______ someone.", options: ["greet", "greeting", "greeted", "greeting to"], correct: 0 },
+            { id: 46, text: "The more we learn about other cultures, the ______ we become.", options: ["understanding", "most understanding", "more understanding", "much understanding"], correct: 2 },
+            { id: 47, text: "Cultural exchange gives young people an opportunity ______ their knowledge of the world.", options: ["expand", "expanding", "expanded", "to expand"], correct: 3 },
+            { id: 48, text: "Some visitors feel ______ when they first experience unfamiliar customs.", options: ["confusion", "confused", "confusingly", "confuse"], correct: 1 },
+            { id: 49, text: "Respecting cultural differences can help prevent ______ between people.", options: ["misunderstandings", "achievements", "celebrations", "contributions"], correct: 0 },
+            { id: 50, text: "A multicultural society is one in which people from different cultural backgrounds live ______.", options: ["harmony", "harmonious", "harmoniously", "harmonize"], correct: 2 },
+            { id: 51, text: "In many cultures, it is considered ______ to interrupt someone who is speaking.", options: ["polite", "impolite", "politely", "politeness"], correct: 1 },
+            { id: 52, text: "Visitors should familiarise themselves ______ local customs before travelling abroad.", options: ["to", "at", "with", "for"], correct: 2 },
+            { id: 53, text: "The festival, ______ takes place every spring, attracts thousands of visitors.", options: ["who", "whose", "whom", "which"], correct: 3 },
+            { id: 54, text: "The woman ______ son studies in Australia is my English teacher.", options: ["who", "whose", "which", "whom"], correct: 1 },
+            { id: 55, text: "People ______ travel abroad often have opportunities to experience different cultures.", options: ["who", "which", "whose", "whom"], correct: 0 },
+            { id: 56, text: "It is important to avoid cultural ______ when interacting with international visitors.", options: ["sensitive", "sensitively", "insensitivity", "sensitise"], correct: 2 },
+            { id: 57, text: "Different cultures may have different ______ of showing respect.", options: ["ways", "customs to", "traditions for", "manners of to"], correct: 0 },
+            { id: 58, text: "If you ______ abroad, you should learn about the local culture.", options: ["travel", "travelled", "will travel", "would travel"], correct: 0 },
+            { id: 59, text: "We should be open-minded ______ learning about unfamiliar traditions.", options: ["on", "to", "at", "with"], correct: 1 },
+            { id: 60, text: "Understanding cultural differences helps people live together in ______.", options: ["peaceful", "peacefully", "peace", "peacefulness"], correct: 2 },
+
+            // UNIT 3
+            { id: 61, text: "We can reduce plastic waste by using ______ bags instead of plastic ones.", options: ["disposable", "reusable", "polluted", "harmful"], correct: 1 },
+            { id: 62, text: "Turning off unnecessary lights helps us save ______.", options: ["energy", "diversity", "achievement", "tradition"], correct: 0 },
+            { id: 63, text: "The government encourages people to use public transport to reduce air ______.", options: ["contribution", "biography", "pollution", "childhood"], correct: 2 },
+            { id: 64, text: "We should ______ old newspapers, bottles, and cans instead of throwing them away.", options: ["waste", "pollute", "damage", "recycle"], correct: 3 },
+            { id: 65, text: "Many students are taking part in activities to raise environmental ______.", options: ["awareness", "achievement", "childhood", "confusion"], correct: 0 },
+            { id: 66, text: "We need to cut ______ on the amount of plastic we use every day.", options: ["out", "down", "off", "away"], correct: 1 },
+            { id: 67, text: "Our school has introduced a campaign to encourage students to ______ a greener lifestyle.", options: ["adopt", "admire", "attend", "defeat"], correct: 0 },
+            { id: 68, text: "People should avoid ______ water when washing dishes.", options: ["waste", "to waste", "wasting", "wasted"], correct: 2 },
+            { id: 69, text: "Many young people are interested ______ protecting endangered animals.", options: ["on", "at", "for", "in"], correct: 3 },
+            { id: 70, text: "The environmental club is responsible ______ organising the clean-up campaign.", options: ["for", "to", "with", "about"], correct: 0 },
+            { id: 71, text: "We should ______ single-use plastic products whenever possible.", options: ["rely on", "get rid of", "look forward to", "take care"], correct: 1 },
+            { id: 72, text: "The city has planted more trees, ______ has improved the air quality.", options: ["who", "where", "which", "whose"], correct: 2 },
+            { id: 73, text: "My school has started a recycling programme, ______ encourages students to sort their rubbish.", options: ["that", "who", "whose", "which"], correct: 3 },
+            { id: 74, text: "The students collected hundreds of plastic bottles, ______ were later sent to a recycling centre.", options: ["which", "who", "where", "whose"], correct: 0 },
+            { id: 75, text: "The factory has reduced its carbon emissions, ______ is good news for the local community.", options: ["who", "which", "where", "whose"], correct: 1 },
+            { id: 76, text: "We should use products ______ are made from recycled materials.", options: ["who", "where", "which", "whose"], correct: 2 },
+            { id: 77, text: "The more carefully we sort our rubbish, the ______ it is to recycle it.", options: ["easy", "easiest", "more easily", "easier"], correct: 3 },
+            { id: 78, text: "If everyone ______ reusable bottles, we could reduce plastic waste significantly.", options: ["used", "uses", "will use", "is using"], correct: 0 },
+            { id: 79, text: "Our class has decided ______ a campaign to keep the school grounds clean.", options: ["organise", "organising", "to organise", "organised"], correct: 2 },
+            { id: 80, text: "We should be aware ______ the harmful effects of climate change.", options: ["at", "of", "for", "with"], correct: 1 },
+            { id: 81, text: "Solar power is a renewable source of ______.", options: ["energy", "rubbish", "pollution", "waste"], correct: 0 },
+            { id: 82, text: "Plastic waste can take hundreds of years to ______.", options: ["recycle into", "break down", "give up", "turn off"], correct: 1 },
+            { id: 83, text: "Instead of driving to school, students can ______ bicycles to reduce emissions.", options: ["take up", "put off", "ride", "look after"], correct: 2 },
+            { id: 84, text: "The school encourages students ______ paper on both sides.", options: ["use", "using", "used", "to use"], correct: 3 },
+            { id: 85, text: "We can protect the environment by ______ less electricity.", options: ["use", "using", "to use", "used"], correct: 1 },
+            { id: 86, text: "The beach ______ we collected rubbish was much cleaner after the campaign.", options: ["where", "who", "whose", "whom"], correct: 0 },
+            { id: 87, text: "The students ______ joined the tree-planting activity received certificates.", options: ["which", "whose", "who", "where"], correct: 2 },
+            { id: 88, text: "If people continue to cut down forests, many animal species ______ their natural habitats.", options: ["lose", "lost", "would lose", "will lose"], correct: 3 },
+            { id: 89, text: "Using public transport is one of the most effective ways to reduce our carbon ______.", options: ["footprint", "tradition", "biography", "achievement"], correct: 0 },
+            { id: 90, text: "We should all take responsibility ______ protecting the environment.", options: ["at", "for", "with", "by"], correct: 1 }
+        ];
+
+        const LABELS = ['A', 'B', 'C', 'D'];
+        const TOTAL = questionsData.length;
+        const UNIT_META = {
+            1: { name: "Life Stories We Admire", short: "Life Stories", from: 1, to: 30 },
+            2: { name: "A Multicultural World", short: "Multicultural World", from: 31, to: 60 },
+            3: { name: "Green Living", short: "Green Living", from: 61, to: 90 }
+        };
+
+        const qById = Object.fromEntries(questionsData.map(q => [q.id, q]));
+        const originalOrder = questionsData.map(q => q.id);
+
+        let order = originalOrder.slice();
+        let answers = {};
+        let submitted = false;
+        let shuffled = false;
+
+        const $ = id => document.getElementById(id);
+        const container = $('questionsContainer');
+        const quizForm = $('quizForm');
+        const resultPanel = $('resultPanel');
+
+        function unitOf(id) { return id <= 30 ? 1 : id <= 60 ? 2 : 3; }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[c]));
+        }
+
+        function unitHeader(unit) {
+            const meta = UNIT_META[unit];
+            return `
+                <div class="unit-head">
+                    <div>
+                        <span class="u-tag">Unit ${unit}</span>
+                        <h2>${meta.name}</h2>
+                    </div>
+                    <span class="u-count">${meta.to - meta.from + 1} câu</span>
+                </div>`;
+        }
+
+        function questionCard(q, displayNumber) {
+            const unit = unitOf(q.id);
+            let optionsHtml = '';
+            q.options.forEach((opt, i) => {
+                const checked = answers[q.id] === i ? ' checked' : '';
+                optionsHtml += `
+                    <label class="opt" data-o="${i}">
+                        <input type="radio" name="q${q.id}" value="${i}"${checked}${submitted ? ' disabled' : ''}>
+                        <span class="key">${LABELS[i]}</span>
+                        <span class="opt-text">${escapeHtml(opt)}</span>
+                    </label>`;
+            });
+
+            return `
+                <div class="q-card" id="card-${q.id}">
+                    <div class="q-head">
+                        <span class="q-num">Câu ${displayNumber}</span>
+                        <span class="q-unit">Unit ${unit}</span>
+                    </div>
+                    <p class="q-text">${escapeHtml(q.text)}</p>
+                    <div class="options">${optionsHtml}</div>
+                    <div class="q-note-slot"></div>
+                </div>`;
+        }
+
+        function render() {
+            let html = '';
+            let lastUnit = null;
+
+            order.forEach((id, index) => {
+                const unit = unitOf(id);
+                if (!shuffled && unit !== lastUnit) {
+                    html += unitHeader(unit);
+                    lastUnit = unit;
+                }
+                html += questionCard(qById[id], index + 1);
+            });
+
+            container.innerHTML = html;
+            container.classList.toggle('grouped', !shuffled);
+            container.classList.toggle('graded', submitted);
+            container.classList.toggle('shuffled', shuffled);
+        }
+
+        function answeredCount() { return Object.keys(answers).length; }
+
+        function updateProgress() {
+            const count = answeredCount();
+            const pct = Math.round(count / TOTAL * 100);
+            $('progressText').textContent = `${count}/${TOTAL} câu`;
+            $('progressPct').textContent = `${pct}%`;
+            $('progressFill').style.width = `${pct}%`;
+            $('progressBar').setAttribute('aria-valuenow', String(count));
+        }
+
+        function showToast(message) {
+            const toast = $('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => toast.classList.remove('show'), 1900);
+        }
+
+        function animateNumber(el, target) {
+            const duration = 650;
+            const start = performance.now();
+            function step(now) {
+                const p = Math.min(1, (now - start) / duration);
+                el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+                if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        function checkAnswers() {
+            const blankBefore = TOTAL - answeredCount();
+            if (!submitted && blankBefore > 0) {
+                const ok = confirm(`Bạn còn ${blankBefore} câu chưa trả lời. Vẫn nộp bài?`);
+                if (!ok) return;
+            }
+
+            submitted = true;
+            let score = 0, wrong = 0, blank = 0;
+            const unitStats = {
+                1: { correct: 0, total: 30 },
+                2: { correct: 0, total: 30 },
+                3: { correct: 0, total: 30 }
+            };
+
+            questionsData.forEach(q => {
+                const card = $('card-' + q.id);
+                if (!card) return;
+                const unit = unitOf(q.id);
+                const slot = card.querySelector('.q-note-slot');
+                const correctOpt = card.querySelector(`.opt[data-o="${q.correct}"]`);
+                if (correctOpt) correctOpt.classList.add('correct');
+
+                const chosen = answers[q.id];
+                if (chosen === undefined) {
+                    blank++;
+                    card.classList.add('is-blank');
+                    slot.innerHTML = `<div class="q-note blank">Chưa trả lời · Đáp án đúng: <b>${LABELS[q.correct]}. ${escapeHtml(q.options[q.correct])}</b></div>`;
+                } else if (chosen === q.correct) {
+                    score++;
+                    unitStats[unit].correct++;
+                    slot.innerHTML = `<div class="q-note ok">✓ Chính xác!</div>`;
+                } else {
+                    wrong++;
+                    const wrongOpt = card.querySelector(`.opt[data-o="${chosen}"]`);
+                    if (wrongOpt) wrongOpt.classList.add('wrong');
+                    slot.innerHTML = `<div class="q-note bad">Đáp án đúng: <b>${LABELS[q.correct]}. ${escapeHtml(q.options[q.correct])}</b></div>`;
+                }
+            });
+
+            container.querySelectorAll('input[type="radio"]').forEach(input => input.disabled = true);
+
+            // Result panel
+            const pct = Math.round(score / TOTAL * 100);
+            $('resOrb').style.setProperty('--pct', pct + '%');
+            animateNumber($('resScore'), score);
+            $('resCorrect').textContent = score;
+            $('resWrong').textContent = wrong;
+            $('resBlank').textContent = blank;
+
+            let title = "Kết quả của bạn", msg = "";
+            if (pct >= 90) { title = "Xuất sắc! 🏆"; msg = "Phong độ đỉnh cao — bạn đã nắm rất chắc kiến thức Units 1–3."; }
+            else if (pct >= 80) { title = "Rất tốt! 🎉"; msg = "Chỉ còn một vài lỗi nhỏ, ôn thêm là hoàn hảo."; }
+            else if (pct >= 65) { title = "Khá tốt 👍"; msg = "Nền tảng ổn rồi, xem lại các câu sai để tiến bộ nhanh hơn."; }
+            else if (pct >= 50) { title = "Cần cố gắng thêm 💪"; msg = "Bạn đã làm đúng một nửa — ôn lại từ vựng và ngữ pháp trọng tâm nhé."; }
+            else { title = "Đừng nản, luyện thêm nhé 🌱"; msg = "Xem kỹ đáp án đúng bên dưới rồi thử lại lần nữa, bạn sẽ tiến bộ rõ rệt."; }
+            $('resTitle').textContent = title;
+            $('resMsg').textContent = `${msg} Bạn đạt ${pct}% (${score}/${TOTAL} điểm).`;
+
+            $('resUnits').innerHTML = [1, 2, 3].map(u => {
+                const s = unitStats[u];
+                const p = Math.round(s.correct / s.total * 100);
+                return `
+                    <div class="unit-stat">
+                        <div class="us-top"><span>Unit ${u} · ${UNIT_META[u].short}</span><b>${s.correct}/${s.total}</b></div>
+                        <div class="us-bar"><i style="width:${p}%"></i></div>
+                    </div>`;
+            }).join('');
+
+            $('scoreBadge').innerHTML = `Điểm: <b>${score}</b>/${TOTAL}`;
+            resultPanel.classList.remove('hidden');
+            $('resetBtn').classList.remove('hidden');
+            $('resetBtn2').classList.remove('hidden');
+            $('shuffleBtn').disabled = true;
+            $('submitBtn').disabled = true;
+            $('submitBtn2').disabled = true;
+
+            requestAnimationFrame(() => resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        }
+
+        function resetQuiz() {
+            answers = {};
+            submitted = false;
+            shuffled = false;
+            order = originalOrder.slice();
+
+            quizForm.reset();
+            resultPanel.classList.add('hidden');
+            $('resetBtn').classList.add('hidden');
+            $('resetBtn2').classList.add('hidden');
+            $('shuffleBtn').disabled = false;
+            $('submitBtn').disabled = false;
+            $('submitBtn2').disabled = false;
+            $('scoreBadge').innerHTML = 'Điểm: <b>–</b>/90';
+            $('shuffleBtn').textContent = '🔀 Đảo câu';
+
+            render();
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast('Đã làm mới bài tập');
+        }
+
+        function toggleShuffle() {
+            if (submitted) return;
+            shuffled = !shuffled;
+
+            if (shuffled) {
+                order = originalOrder.slice();
+                for (let i = order.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [order[i], order[j]] = [order[j], order[i]];
+                }
+                $('shuffleBtn').textContent = '↩ Thứ tự gốc';
+                showToast('Đã đảo thứ tự 90 câu hỏi');
+            } else {
+                order = originalOrder.slice();
+                $('shuffleBtn').textContent = '🔀 Đảo câu';
+                showToast('Đã trả về thứ tự gốc');
+            }
+
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Events
+        container.addEventListener('change', e => {
+            const input = e.target.closest('input[type="radio"]');
+            if (!input) return;
+            answers[input.name.slice(1)] = Number(input.value);
+            updateProgress();
+        });
+
+        $('submitBtn').addEventListener('click', checkAnswers);
+        $('submitBtn2').addEventListener('click', checkAnswers);
+        $('resetBtn').addEventListener('click', resetQuiz);
+        $('resetBtn2').addEventListener('click', resetQuiz);
+        $('shuffleBtn').addEventListener('click', toggleShuffle);
+
+        // Theme
+        const themeBtn = $('themeBtn');
+        function applyTheme(theme) {
+            document.documentElement.dataset.theme = theme;
+            themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+            themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối');
+        }
+        let savedTheme = null;
+        try { savedTheme = localStorage.getItem('quiz-theme'); } catch (err) {}
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+        themeBtn.addEventListener('click', () => {
+            const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            try { localStorage.setItem('quiz-theme', next); } catch (err) {}
+        });
+
+        // Init
+        $('year').textContent = new Date().getFullYear();
+        render();
+        updateProgress();
+    </script>
+</body>
+</html>
