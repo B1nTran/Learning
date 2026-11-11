@@ -98,6 +98,7 @@
             padding: 12px 0 8px;
         }
         .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+        .brand > div { min-width: 0; }
         .logo {
             width: 44px; height: 44px; flex: 0 0 44px;
             display: grid; place-items: center;
@@ -156,12 +157,13 @@
 
         .toolbar {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             gap: 14px;
             padding: 6px 0 12px;
         }
-        .progress-block { flex: 1 1 200px; min-width: 140px; }
+        .progress-block { flex: 1 1 200px; min-width: 140px; max-width: 420px; }
         .progress-meta {
             display: flex;
             justify-content: space-between;
@@ -295,6 +297,7 @@
             font-size: .98rem;
             font-weight: 600;
             line-height: 1.55;
+            overflow-wrap: anywhere;
         }
         .options {
             display: grid;
@@ -340,16 +343,20 @@
         .opt:has(input:checked) .key { background: var(--primary); color: #fff; }
         .opt-text { flex: 1; }
 
-        .opt.correct { border-color: var(--ok); background: var(--ok-soft); }
-        .opt.correct .key { background: var(--ok); color: #fff; }
+        .opt.correct,
+        .opt.correct:has(input:checked) { border-color: var(--ok); background: var(--ok-soft); }
+        .opt.correct .key,
+        .opt.correct:has(input:checked) .key { background: var(--ok); color: #fff; }
         .opt.correct::after {
             content: "✓";
             margin-left: auto;
             color: var(--ok);
             font-weight: 800;
         }
-        .opt.wrong { border-color: var(--bad); background: var(--bad-soft); }
-        .opt.wrong .key { background: var(--bad); color: #fff; }
+        .opt.wrong,
+        .opt.wrong:has(input:checked) { border-color: var(--bad); background: var(--bad-soft); }
+        .opt.wrong .key,
+        .opt.wrong:has(input:checked) .key { background: var(--bad); color: #fff; }
         .opt.wrong::after {
             content: "✕";
             margin-left: auto;
@@ -555,6 +562,7 @@
             .unit-head { padding: 12px 14px; }
             .unit-head h2 { font-size: .93rem; }
             .toolbar { gap: 10px; }
+            .progress-block { max-width: none; }
             .toolbar-actions { width: 100%; }
             .toolbar-actions .btn { flex: 1; }
             .result { padding: 18px; }
@@ -859,6 +867,7 @@
                 if (p < 1) requestAnimationFrame(step);
             }
             requestAnimationFrame(step);
+            setTimeout(() => { el.textContent = target; }, duration + 120);
         }
 
         function checkAnswers() {
@@ -892,7 +901,6 @@
                 } else if (chosen === q.correct) {
                     score++;
                     unitStats[unit].correct++;
-                    slot.innerHTML = `<div class="q-note ok">✓ Chính xác!</div>`;
                 } else {
                     wrong++;
                     const wrongOpt = card.querySelector(`.opt[data-o="${chosen}"]`);
