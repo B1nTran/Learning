@@ -326,6 +326,10 @@
             pointer-events: none;
         }
         .opt:hover { border-color: var(--primary); background: var(--primary-soft); }
+        .opt:has(input:focus-visible) {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
         .opt .key {
             flex: 0 0 26px;
             width: 26px;
