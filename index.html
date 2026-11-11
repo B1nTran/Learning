@@ -677,6 +677,87 @@
         }
         #toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+        /* ---------- Update notice ---------- */
+        .update-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background:
+                radial-gradient(700px 400px at 20% 0%, var(--glow1), transparent 60%),
+                radial-gradient(600px 360px at 90% 20%, var(--glow2), transparent 60%),
+                var(--bg);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            animation: fadeIn .25s ease;
+        }
+        .update-card {
+            width: 100%;
+            max-width: 430px;
+            padding: 34px 28px 26px;
+            text-align: center;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            animation: updatePop .42s cubic-bezier(.2, .8, .25, 1);
+        }
+        .update-spinner {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px solid var(--track);
+            border-top-color: var(--primary);
+            border-right-color: var(--primary-2);
+            animation: spin .9s linear infinite;
+        }
+        .update-card h2 {
+            margin: 0 0 8px;
+            font-size: 1.16rem;
+            font-weight: 750;
+            line-height: 1.4;
+        }
+        .update-card p {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: .87rem;
+            line-height: 1.55;
+        }
+        .update-bar {
+            height: 6px;
+            border-radius: 999px;
+            background: var(--track);
+            overflow: hidden;
+        }
+        .update-bar i {
+            display: block;
+            height: 100%;
+            width: 0;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--primary), var(--primary-2));
+            animation: updateFill 2.1s ease forwards;
+        }
+        .update-note {
+            margin: 14px 0 0 !important;
+            font-size: .76rem !important;
+        }
+        .update-note a {
+            color: var(--primary);
+            font-weight: 650;
+            text-decoration: none;
+        }
+        .update-note a:hover { text-decoration: underline; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes updateFill { to { width: 100%; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes updatePop {
+            from { opacity: 0; transform: translateY(14px) scale(.97); }
+            to { opacity: 1; transform: none; }
+        }
+
         @media (max-width: 720px) {
             .res-units { grid-template-columns: 1fr; }
         }
@@ -705,6 +786,30 @@
     </style>
 </head>
 <body>
+    <!-- Thông báo cập nhật: hiện 1 lần mỗi phiên rồi tự tải lại -->
+    <div id="updateOverlay" class="update-overlay hidden" role="alertdialog" aria-live="assertive" aria-label="Thông báo cập nhật">
+        <div class="update-card">
+            <div class="update-spinner"></div>
+            <h2>Web đang được cập nhật bởi admin</h2>
+            <p>Vui lòng chờ trong giây lát, trang sẽ tự động tải lại để nhận phiên bản mới nhất...</p>
+            <div class="update-bar"><i></i></div>
+            <p class="update-note">Không tự tải lại? <a href="#" id="updateReloadLink">Bấm vào đây</a></p>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var hasReloadedParam = /[?&]reloaded=1/.test(location.search);
+            var stored = false;
+            try { stored = sessionStorage.getItem('quiz-updated-once') === '1'; } catch (err) {}
+            var show = !hasReloadedParam && !stored;
+            window.__showUpdateNotice = show;
+            if (show) {
+                document.getElementById('updateOverlay').classList.remove('hidden');
+                document.documentElement.style.overflow = 'hidden';
+            }
+        })();
+    </script>
+
     <div class="sticky-shell">
         <div class="wrap">
             <div class="topbar">
@@ -1274,6 +1379,32 @@
             applyTheme(next);
             try { localStorage.setItem('quiz-theme', next); } catch (err) {}
         });
+
+        // Update notice: hiện thông báo rồi tự tải lại một lần
+        (function initUpdateNotice() {
+            if (!window.__showUpdateNotice) return;
+            let canStore = true;
+            try { sessionStorage.setItem('quiz-updated-once', '1'); } catch (err) { canStore = false; }
+
+            let done = false;
+            function doReload() {
+                if (done) return;
+                done = true;
+                if (canStore) {
+                    location.reload();
+                } else {
+                    const url = new URL(location.href);
+                    url.searchParams.set('reloaded', '1');
+                    location.replace(url.toString());
+                }
+            }
+
+            $('updateReloadLink').addEventListener('click', e => {
+                e.preventDefault();
+                doReload();
+            });
+            setTimeout(doReload, 2300);
+        })();
 
         // Init
         $('year').textContent = new Date().getFullYear();
